@@ -1,0 +1,30 @@
+# Attiva il motore di riscrittura di Apache (mod_rewrite)
+# Senza questa direttiva, tutte le regole sotto vengono ignorate.
+RewriteEngine On
+
+
+# Condizione 1:
+# %{REQUEST_FILENAME} rappresenta il percorso reale del file richiesto sul filesystem
+# !-f significa: "se NON è un file esistente"
+RewriteCond %{REQUEST_FILENAME} !-f
+
+
+# Condizione 2:
+# !-d significa: "se NON è una directory esistente"
+# Insieme alla condizione sopra, stiamo dicendo:
+# "procedi solo se la richiesta NON punta a un file o a una cartella reale"
+RewriteCond %{REQUEST_FILENAME} !-d
+
+
+# Regola di riscrittura vera e propria:
+# ^(.*)$ intercetta QUALSIASI URL richiesta
+# (.*) cattura l'intera URL (senza dominio)
+#
+# index.php?url=$1
+# → redirige internamente tutto a index.php
+# → passando l'URL originale come parametro GET chiamato "url"
+#
+# [L,QSA] sono dei flag:
+# L  = Last → questa è l'ultima regola da applicare (stop alle altre)
+# QSA = Query String Append → preserva eventuali parametri GET già presenti
+RewriteRule ^(.*)$ index.php?url=$1 [L,QSA]

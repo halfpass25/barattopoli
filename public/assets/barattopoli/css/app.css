@@ -1,0 +1,151 @@
+/* =========================================================
+   BARATTOPOLI - CSS MINIMALE UI + OVERLAY HOME
+   ========================================================= */
+
+/* === RESET LEGGERO === */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background-color: #f7f8fb; /* grigio freddo leggerissimo */
+  color: #2d2d2d;
+}
+
+/* === LINK === */
+a {
+  text-decoration: none;
+  color: #5b6cff; /* blu pastello */
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: #3f4ed8; /* contrasto */
+}
+
+/* === CONTAINER BASE (fallback se non usi Bootstrap) === */
+.container {
+  width: 92%;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+/* === TITOLI === */
+h1, h2, h3 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+/* =========================================================
+   HOME - CARD OGGETTI + OVERLAY
+   ========================================================= */
+
+.item-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+/* micro-interazione */
+.item-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+}
+
+/* immagine */
+.item-card img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* overlay */
+.item-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 44, 63, 0.65); /* grigio/blu scuro */
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+/* attivazione overlay */
+.item-card:hover .item-overlay {
+  opacity: 1;
+}
+
+/* meta info (views, like, swap) */
+.item-meta {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  color: #ffffff;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+/* =========================================================
+   ELEMENTI UI MINIMALI
+   ========================================================= */
+
+/* BOTTONI */
+.btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: #5b6cff;
+  color: #fff;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.btn:hover {
+  background: #3f4ed8;
+}
+
+/* INPUT */
+input, select, textarea {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid #dcdfea;
+  background: #ffffff;
+  font-size: 14px;
+  transition: border 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: #5b6cff;
+}
+
+/* CARD GENERICHE */
+.card {
+  background: #ffffff;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* NAVBAR BASIC */
+.navbar {
+  background: #ffffff;
+  border-bottom: 1px solid #e6e8f0;
+  padding: 10px 20px;
+}
+
+/* FOOTER */
+.footer {
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+}
