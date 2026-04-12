@@ -80,11 +80,14 @@ define('HTTP_TYPE', 'http');
 define(
     'ROOT',
      HTTP_TYPE . '://' . $_SERVER['SERVER_NAME'] . '/barattopoli/'
+    
 );
+ //echo "ROOT=".ROOT;
 
 /* Percorso pubblico degli assets */
-define('ASSETS', ROOT . 'public/assets/');
-
+define('ASSETS', 
+    ROOT . 'public/assets/');
+//echo "ASSETS=".ROOT . 'public/assets/';
 
 /**
  * ------------------------------------------------
