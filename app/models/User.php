@@ -6,6 +6,7 @@ class User
 
     function login()
     {
+
         // Instanzia l'oggetto Database una sola volta, con un Singleton.
         //Qui non serve l'include della classe database perché già "required" da index.php
         $DB = database::getInstance();
@@ -25,17 +26,19 @@ class User
 
             // Esegue la query
             $data = $DB->fetchAll($query, $arr);
+            //var_dump ($data);
+            //exit;
 
             if(is_array($data) && count($data) > 0)
             {
                 // Login riuscito, settiamo le variabili di sessione
                 $_SESSION['user_name'] = $data[0]->username;
                 $_SESSION['user_url'] = $data[0]->url_address;
-                $_SESSION['user_id']  = $data[0]->idu;
+                $_SESSION['user_id']  = $data[0]->id;
+                
+                return true; //indicherà al controller di Login che l'utente è stato 
+                //correttamente autenticato
 
-                // Reindirizza alla Home Page
-                header("Location:". ROOT . "home");
-                die;
             }
             else
             {

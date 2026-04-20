@@ -1,4 +1,4 @@
-<?php $this->view("barattopoli/header", $data); ?>
+<?php $this->view("commons/header", $data); ?>
 
 <?php
 // Se ci sono messaggi di errore, mostriamoli
@@ -30,4 +30,4 @@ unset($_SESSION['error']);
     </div>
 </div>
 
-<?php $this->view("barattopoli/footer", $data); ?>
+<?php $this->view("commons/footer", $data); ?>

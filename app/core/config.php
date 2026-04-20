@@ -45,7 +45,7 @@ define('APP_TITLE', 'BARATTOPOLI');
  */
 
 define('DB_TYPE', 'mysql');
-define('DB_NAME', 'barattopoli');
+define('DB_NAME', 'barattopoli_db');
 define('DB_USER', 'root');
 define('DB_PASS', '');
 define('DB_HOST', 'localhost');

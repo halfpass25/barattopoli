@@ -1,6 +1,6 @@
 <?php
 
-Class abstractController
+class AbstractController
 {
     /*
     Classe base per tutti i controller. Contiene:
@@ -54,15 +54,18 @@ Class abstractController
     {
         $viewFile = "app/views/" . $view . ".php";
 
-        // NOTA DIDATTICA:
-        // $data viene passato, ma non “spacchettato” automaticamente
-        // Il lettore deve capire che la view conosce i dati per convenzione
+        // NOTA DIDATTICA:i dati vengono estratti così che la view possa usarli
+        // come variabili locali (es. $user, $name, ecc.)
         if (file_exists($viewFile)) {
+
+            extract($data);
+
             include $viewFile;
+
         } else {
             // NOTA DIDATTICA:
             // Include 404 direttamente: mostra come gestire un errore in modo brutale
-            include "app/views/barattopoli/_404.php";
+            include "app/views/errors/_404.php";
         }
     }
 

@@ -4,12 +4,12 @@ class Router
 {
     // Valori di default: se il router non riceve esplicitamente 
     //un controller ed un metodo, punta automaticamente al LOGIN
-    private string $defaultController = 'dummy_login';
+    private string $defaultController = 'login';
     private string $defaultMethod     = 'index';
 
     // Nome del controller (stringa)
     private string $controllerName;
-
+   
     // Istanza del controller (oggetto)
     private object $controller;
 
@@ -22,13 +22,15 @@ class Router
     public function __construct()
     {
         $url = $this->parseUrl();
-
+       
         $this->resolveController($url);
         $this->resolveMethod($url);
         $this->resolveParams($url);
 
         $this->dispatch();
+    
     }
+     
 
     // ============================================================
     // URL parsing
@@ -59,6 +61,7 @@ class Router
             unset($url[0]);
         }
 
+        //echo "REQUIRED_CONTROLLER= ".$file;
         require_once $file;
 
         if (!class_exists($controller)) {

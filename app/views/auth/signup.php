@@ -1,6 +1,6 @@
 <?php 
 // Inclusione header condiviso
-$this->view("barattopoli/header", $data);
+$this->view("commons/header", $data);
 
 // Se ci sono messaggi di errore, mostriamoli
 $error = $_SESSION['error'] ?? '';
@@ -36,5 +36,5 @@ unset($_SESSION['error']);
 
 <?php 
 // Inclusione footer condiviso
-$this->view("barattopoli/footer");
+$this->view("commons/footer");
 ?>

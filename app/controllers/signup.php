@@ -48,6 +48,6 @@ class Signup extends abstractController
         }
 
         // Render della view SIGNUP
-        $this->view("barattopoli/signup", $data);
+        $this->view("auth/signup", $data);
     }
 }

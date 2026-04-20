@@ -1,5 +1,5 @@
 /* =========================================================
-   BARATTOPOLI - CSS MINIMALE UI + OVERLAY HOME
+   BARATTOPOLI - CSS MINIMALE UI + BOOTSTRAP SKIN COMPATTA
    ========================================================= */
 
 /* === RESET LEGGERO === */
@@ -10,31 +10,34 @@
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-  background-color: #f7f8fb; /* grigio freddo leggerissimo */
+  background-color: #f7f8fb;
   color: #2d2d2d;
+  font-size: 12px;
+  line-height: 1.4;
 }
 
 /* === LINK === */
 a {
   text-decoration: none;
-  color: #5b6cff; /* blu pastello */
+  color: #5b6cff;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #3f4ed8; /* contrasto */
+  color: #3f4ed8;
 }
 
-/* === CONTAINER BASE (fallback se non usi Bootstrap) === */
+/* === CONTAINER === */
 .container {
   width: 92%;
   margin: 0 auto;
-  max-width: 1200px;
+  max-width: 1100px;
 }
 
 /* === TITOLI === */
 h1, h2, h3 {
   margin-top: 0;
+  font-size: 16px;
   font-weight: 600;
 }
 
@@ -52,94 +55,150 @@ h1, h2, h3 {
   cursor: pointer;
 }
 
-/* micro-interazione */
 .item-card:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 6px 18px rgba(0,0,0,0.08);
 }
 
-/* immagine */
 .item-card img {
   display: block;
   width: 100%;
   height: auto;
 }
 
-/* overlay */
 .item-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(40, 44, 63, 0.65); /* grigio/blu scuro */
+  background: rgba(40, 44, 63, 0.65);
   opacity: 0;
   transition: opacity 0.2s ease;
 }
 
-/* attivazione overlay */
 .item-card:hover .item-overlay {
   opacity: 1;
 }
 
-/* meta info (views, like, swap) */
 .item-meta {
   position: absolute;
   bottom: 10px;
   right: 12px;
   color: #ffffff;
-  font-size: 14px;
-  letter-spacing: 0.5px;
+  font-size: 13px;
 }
 
 /* =========================================================
-   ELEMENTI UI MINIMALI
+   UI ELEMENTS (COMPATTI + BOOTSTRAP FRIENDLY)
    ========================================================= */
 
 /* BOTTONI */
 .btn {
-  display: inline-block;
-  padding: 8px 14px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 10px;
   border-radius: 6px;
   background: #5b6cff;
-  color: #fff;
-  font-size: 14px;
+  color: #ffffff !important;
+  font-size: 12px;
+  line-height: 1;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .btn:hover {
   background: #3f4ed8;
+  transform: translateY(-1px);
+  color: #ffffff !important;
 }
 
 /* INPUT */
-input, select, textarea {
+input,
+select,
+textarea {
   width: 100%;
-  padding: 8px 10px;
+  padding: 4px 8px;
   border-radius: 6px;
   border: 1px solid #dcdfea;
   background: #ffffff;
-  font-size: 14px;
+  font-size: 13px;
+  line-height: 1.2;
   transition: border 0.2s ease;
 }
 
-input:focus, textarea:focus, select:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline: none;
   border-color: #5b6cff;
 }
 
-/* CARD GENERICHE */
+/* CARD */
 .card {
   background: #ffffff;
   border-radius: 10px;
-  padding: 15px;
+  padding: 10px;
   box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+  border: none;
 }
 
-/* NAVBAR BASIC */
+.card-body {
+  padding: 10px;
+}
+
+
+/* NAVBAR */
+
+/* nome utente navbar */
+.user-name {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+
 .navbar {
   background: #ffffff;
   border-bottom: 1px solid #e6e8f0;
   padding: 10px 20px;
 }
+
+/* migliora leggibilità navbar */
+.navbar .nav-link {
+  font-size: 14px; /* più leggibile */
+}
+
+/* stile link navbar (più specifico di bootstrap) */
+.navbar .nav-link.nav-action {
+  font-weight: 600;
+  color: #333 !important;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 6px;
+  transition: all 0.2s ease;
+}
+
+/* hover che vince su bootstrap */
+.navbar .nav-link.nav-action:hover {
+  background-color: #f2f2f2;
+  color: #000 !important;
+  text-decoration: none;
+}
+
+/* logout evidenziato */
+.navbar .nav-link.logout-link:hover {
+  background-color: #ffe5e5;
+  color: #c00 !important;
+}
+
+/* search box navbar più compatta */
+.search-box {
+  width: 160px;
+  font-size: 13px;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
 
 /* FOOTER */
 .footer {
@@ -150,57 +209,72 @@ input:focus, textarea:focus, select:focus {
   color: #777;
 }
 
-/* ======================= */
-/* SIGNUP / LOGIN CENTRATO */
-/* ======================= */
+/* =========================================================
+   SIGNUP / LOGIN
+   ========================================================= */
 
 .signup-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh; /* altezza viewport piena */
-    background-color: #f7f8fb;
-    padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f7f8fb;
+  padding: 20px;
 }
 
 .signup-card {
-    width: 100%;
-    max-width: 380px;
-    padding: 30px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
-    border-radius: 12px;
+  width: 100%;
+  max-width: 360px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+  border-radius: 12px;
 }
 
 .signup-card h2 {
-    text-align: center;
-    margin-bottom: 20px;
+  text-align: center;
+  margin-bottom: 20px;
 }
 
 .signup-card form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
 .signup-card .btn {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
+/* =========================================================
+   UTILITIES
+   ========================================================= */
+
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 
 .mt-10 {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-/* Error message */
+.actions {
+  margin-top: 15px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ERROR */
 .error-msg {
-    background: #ffe6e6;
-    color: #c00;
-    padding: 10px;
-    border-radius: 6px;
-    margin-bottom: 15px;
-    font-size: 14px;
-    text-align: center;
+  background: #ffe6e6;
+  color: #c00;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+/* HOME */
+.home-container {
+  padding: 20px;
 }
