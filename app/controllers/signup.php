@@ -21,7 +21,7 @@ class Signup extends abstractController
 
             // Validazione campi obbligatori
             if (!$username || !$password || !$email) {
-                $_SESSION['error'] = "Inserisci username, email e password.";
+                $data['error'] = "Inserisci username, email e password."; // Andrea: gli errori devono arrivare alla view nello stesso modo
             } else {
                 // Interazione con il modello utente
                 $user = new User();

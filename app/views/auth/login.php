@@ -2,8 +2,7 @@
 
 <?php
 // Se ci sono messaggi di errore, mostriamoli
-$error = $_SESSION['error'] ?? '';
-unset($_SESSION['error']);
+$error = $data['error'] ?? '';
 ?>
 
 <div class="signup-wrapper container"> <!-- riuso stesso layout per SIGNUP -->

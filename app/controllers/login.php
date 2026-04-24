@@ -32,7 +32,9 @@ class Login extends abstractController
             }
 
             // Se login fallisce, l'errore è già in $_SESSION['error']
-            $data['error'] = $_SESSION['error'] ?? "";
+            $data['error'] = $_SESSION['error'] ?? null;
+            unset($_SESSION['error']); // Andrea: la sessione non deve trattenere errori oltre la richiesta corrente
+
         }
 
         // Render della view
